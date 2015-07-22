@@ -1,8 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-#include<stdexcept>
-#include<iostream>
-//using namespace std;
+#include <stdexcept>
+#include <iostream>
+
 template<typename T>
 class Node{
 	public:
@@ -175,7 +175,7 @@ void Linkedlist<T>::print(){
 	}
 	cout<<endl;
 }
-//ÅÅÐò»¹Ã»¸ã»á 
+//a little hard
 template <typename T>
 void Linkedlist<T>::sort(){
 	Node<T> *p3=head;
@@ -214,5 +214,4 @@ void Linkedlist<T>::sort(){
 		tmp=tmp->next;
 	}
 }
-
 #endif
