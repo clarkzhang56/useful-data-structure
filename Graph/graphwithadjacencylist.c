@@ -59,15 +59,21 @@ void CreateDN(Graph *G){
 			tmp->adjvex = j;			
 			printf("Please input the weight:\n");
 			scanf("%d",&tmp->weight);
+			
+			tmp->nextArc = G->vertices[i].firstArc;
+			G->vertices[i].firstArc = tmp;
+			/*	I can't add at the end of the firstarc->nextarc, but I can add it at the first.
+				and the below is sth wrong. It has bugs and can't modify memory when it has more 
+				than 3 nextarc.
 			if(G->vertices[i].firstArc == NULL){	//to decide whether the head has the firstarc
 				G->vertices[i].firstArc = tmp;
 				G->vertices[i].firstArc->nextArc = NULL;
 			}else{									//if the firstarc has nextarc
-			/*
+			*
 			 *	Below is very important. I want to modify the address of the memory on G->vertices[i].firstArc.
 			 *  So I have to use the double pointer to do it. If I just use one pointer, I can change what it 
 			 * point to but I can't change it's address.
-			 */
+			 *
 				ArcNode **tmpnextarc = &G->vertices[i].firstArc->nextArc;
 				while(*tmpnextarc != NULL){
 					*tmpnextarc = (*tmpnextarc)->nextArc;
@@ -76,6 +82,7 @@ void CreateDN(Graph *G){
 				(*tmpnextarc)->nextArc = NULL;
 			}
 			//free(tmp);				You must rememver that the you can't free the memory when it's used.
+			*/
 		}
 	}
 	G->kind = DN;
