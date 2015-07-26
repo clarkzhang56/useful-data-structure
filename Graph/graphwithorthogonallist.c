@@ -94,7 +94,7 @@ void ShowGraph(GraphDN *G){
 		}else{
 			tmpin = G->xlist[i].firstin;
 			while(tmpin != NULL){
-				printf("%5d%5d%5d",tmpin->tailvex,tmpin->headvex,tmpin->weight);
+				printf("%5d%5d%5d     ",tmpin->tailvex,tmpin->headvex,tmpin->weight);
 				tmpin = tmpin->hlink;
 			}
 		}
